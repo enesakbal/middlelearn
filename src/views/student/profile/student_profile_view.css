@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.student-profile-body {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 89vh;
+    width: 100%;
+    background-image: url("https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+}
+
+
+.student-profile-card {
+    flex-direction: column;
+    height: 800px;
+    width: 600px;
+    background-color: rgba(128, 128, 128, 0.452);
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.student-profile-card-image {
+    aspect-ratio: 1;
+    border: 2px solid black;
+    border-radius: 10px;
+    align-self: center;
+    display: block;
+    width: 250px;
+}
+
+
+.student-profile-card-title {
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Roboto Flex', sans-serif;
+    color: black;
+    text-align: center;
+    align-self: center;
+    display: block;
+}
+
+.student-profile-form-card {
+    height: 450px;
+    width: 500px;
+    background-color: wheat;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    display: flex;
+    justify-content: start;
+    padding: 10px;
+    padding-right: 3px;
+    flex-direction: column;
+}
+
+.student-profile-form-card-subtitle {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+.student-profile-form-card-info {
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
+    font-family: 'Roboto Flex', sans-serif;
+}

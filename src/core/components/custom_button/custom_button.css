@@ -1,0 +1,31 @@
+.custom-button {
+    cursor: pointer;
+    font-size: 15px;
+    background: #01d28e;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(241, 90, 41);
+    padding: 10px 20px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: rgb(241, 171, 41);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    position: relative;
+    z-index: 9;
+
+
+    /*
+        Buttonun ortada olmasını sağlar.
+    */
+}

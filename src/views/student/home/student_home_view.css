@@ -1,0 +1,13 @@
+.home {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+}
+
+.grid-container {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+}
