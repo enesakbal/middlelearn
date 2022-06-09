@@ -21,27 +21,17 @@ const StudentHomeView = () => {
         setShow(false);
         setIndex(0);
     }
-
     return (
         <>
             <CustomNavbar data={data} index="0" ></CustomNavbar>
             <div className='home'>
                 <CustomStudentPopup data={LessonDatabase[index]} show={show} handleClose={offDisplay} />
-
-
                 <div className='grid-container'>
                     {LessonDatabase.map((data, key) => {
                         return <CustomCard key={key} data={data} onClick={() => { onDisplay(key)}} />
                     })}
-                    {/* <CustomCard data={LessonDatabase[0]} onClick={onDisplay} />
-                    <CustomCard data={LessonDatabase[1]} />
-                    <CustomCard data={LessonDatabase[2]} />
-                    <CustomCard data={LessonDatabase[3]} /> */}
                 </div>
-
-
             </div>
-
         </>
     )
 

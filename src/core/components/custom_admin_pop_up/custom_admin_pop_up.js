@@ -3,9 +3,9 @@ import './custom_admin_pop_up.css'
 import CustomButton from '../custom_button/custom_button'
 import FileDatabase from '../../constants/file_data/file_data';
 
-const CustomAdminPopup = ({ handleClose, show, data, children }) => {
+const CustomAdminPopup = ({ handleClose, show, data }) => {
 
-    const { lesson_name, pic_url, subjects } = data;
+    const { lesson_name, subjects } = data;
 
     const [fileSelector, setFileSelector] = useState();
 
@@ -16,9 +16,6 @@ const CustomAdminPopup = ({ handleClose, show, data, children }) => {
     const [isUploaded, setIsUploaded] = useState(false);
 
     const [tempList, setTempList] = useState([]);
-
-    const [localUploadedFiles, setLocalUploadedFiles] = useState([])
-
 
     const whichLesson = () => {
         switch (lesson_name) {
@@ -31,9 +28,7 @@ const CustomAdminPopup = ({ handleClose, show, data, children }) => {
             case 'Chemistry':
                 return FileDatabase.CHEMISTRY_UPLOADED_FILES;
         }
-
     }
-
 
     useEffect(() => {
         console.log(show);
@@ -69,7 +64,6 @@ const CustomAdminPopup = ({ handleClose, show, data, children }) => {
         setIsUploaded(false);
 
         if (!isInside) {
-            setLocalUploadedFiles([])
         }
 
         return isInside ? null : handleClose();
@@ -100,44 +94,33 @@ const CustomAdminPopup = ({ handleClose, show, data, children }) => {
 
         }
         setIsUploaded(true);
-
     }
 
     return (
         show === true ?
             <div className=' admin-modal admin-display-block' onClick={clicksOutside}>
                 <div className="admin-modal-main">
-                    <div className='admin-modal-body' onPointerEnter={() => { setIsInside(true); }} onPointerLeave={() => { setIsInside(false) }}>
+                    <div className='admin-modal-body'
+                        onPointerEnter={() => { setIsInside(true); }}
+                        onPointerLeave={() => { setIsInside(false) }}>
                         <div className='admin-modal-firsthalf'>
                             <label className='admin-modal-title'>{lesson_name}</label>
                             <div className='admin-modal-li-box'>
                                 {subjects.map((element, key) => {
                                     return <li key={key} className='admin-modal-li'><a href={element[1]} target='_blank'>{element[0]}</a></li>
                                 })}
-
-                                {
-
-                                    
+                                {     
                                         whichLesson().map((element, key) => {
                                             return <li key={key} className='admin-modal-li'><a target='_blank'>{element.name}</a></li>
                                         })
-                                    
-
                                 }
-                                {/* {localUploadedFiles.map((element, key) => {
-                                    return <li key={key} className='modal-li'><a target='_blank'>{element}</a></li>
-                                })} */}
-
                             </div>
                         </div>
                         <div className='admin-modal-secondhalf'>
-
                             {
                                 isUploaded ?
                                     <div>
                                         {
-
-                                            /** nameleri karşılaştır  */
                                             tempList.map((element, key) => {
                                                 return <div key={key}>{element.name.toString()}</div>
                                             })
@@ -155,47 +138,19 @@ const CustomAdminPopup = ({ handleClose, show, data, children }) => {
                                         placeholder='Drag and drop your file here or click'
                                     />
                             }
-
                             <CustomButton buttonText='Upload' onClick={() => {
                                 let unique = [...new Set(tempList)];
                                 /** VERILER TEKRARLADIĞI İÇİN BUNA İHTİYAÇ DUYDUM */
-
-
                                 unique.forEach(element => {
-                                    setLocalUploadedFiles(localUploadedFiles => [...localUploadedFiles, element.name.toString()]);
                                     whichLesson().push(element);
                                 });
                                 setIsUploaded(false);
                                 setTempList([]);
                             }}></CustomButton>
                         </div>
-
-
-
                     </div>
                 </div>
             </div > : null
-
-
     );
 };
 export default CustomAdminPopup;
-
-{/* <button onClick={handleClose}>
-
-
-
-
-//TODO DRAG DROPUN YAZISINI DOSYA YÜKLENİNCE GÜNCELLE KOLAY İŞ
-//TODO DOSYA EKLENDİĞİNDE LİSTEYE İSMİNİ YAZDIR YETERLİ
-
-//TODO PROFİLE SAYFASINI UCUZ YAPABİLİRSİN
-//TODO CARDLARIN BOYUTLARINI VH VW OLARAK VER KANSER EDİYOR
-//TODO BU SANA BIRAKTIĞIM SON TODO OLACAK ONA GÖRE ÇALIŞ
-
-
-//TODO YÜKLENEN DOSYALARA ÖZEL BOX COMPONENT
-//TODO PROFİLE SAYFASI
-
-
-</button> */}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
+import logo from '../../../assets/logo.png'
 import './custom_navbar.css'
 import '../../init/date_manager/date_manager'
 import DateManager from '../../init/date_manager/date_manager';
@@ -17,10 +18,12 @@ const CustomNavbar = (probs) => {
   const Navigate = useNavigate();
 
   const TO_PROFILE = () => {
-    isAdmin ? Navigate(NavigationPaths.PROFILE_ADMIN, { state: { data: data } }) : Navigate(NavigationPaths.PROFILE_STUDENT, { state: { data: data } })
+    isAdmin ? Navigate(NavigationPaths.PROFILE_ADMIN, { state: { data: data } }) :
+      Navigate(NavigationPaths.PROFILE_STUDENT, { state: { data: data } })
   }
   const TO_HOME = () => {
-    isAdmin ? Navigate(NavigationPaths.HOME_ADMIN, { state: { data: data } }) : Navigate(NavigationPaths.HOME_STUDENT, { state: { data: data } })
+    isAdmin ? Navigate(NavigationPaths.HOME_ADMIN, { state: { data: data } }) :
+      Navigate(NavigationPaths.HOME_STUDENT, { state: { data: data } })
   }
 
   const TO_LOGIN = () => {
@@ -39,7 +42,7 @@ const CustomNavbar = (probs) => {
   return (
     <div className='full'>
       <div className='firsthalf'>
-        <a href='/'><img className='flat' src='https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg'></img></a>
+        <a href='/'><img className='flat' src={logo}></img></a>
         <button onClick={TO_HOME} className={index === '0' ? 'btn active' : 'btn'}>Home</button>
         <button onClick={TO_PROFILE} className={index === '1' ? 'btn active' : 'btn'}>Profile</button>
         <p className='date'>

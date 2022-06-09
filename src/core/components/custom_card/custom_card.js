@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './custom_card.css';
-
 import CustomButton from '../custom_button/custom_button.js';
-import CustomAdminPopup from '../custom_admin_pop_up/custom_admin_pop_up';
-
 
 const CustomCard = (props) => {
     const { data , onClick} = props;
@@ -19,7 +16,10 @@ const CustomCard = (props) => {
                 <li className='card-li'>{subjects[0][0]}</li>
                 <li className='card-li'>{subjects[1][0]}</li>
                 <li className='card-li'>{subjects[2][0]}</li>
-                <CustomButton onClick={onClick} buttonText="Show All" borderRadius='10px'></CustomButton>
+                <CustomButton
+                    onClick={onClick}
+                    buttonText="Show All" 
+                    borderRadius='10px'/>
             </div>
         </div>
     )

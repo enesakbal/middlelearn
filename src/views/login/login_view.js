@@ -81,18 +81,17 @@ const LoginView = () => {
                             onChange={event => setUsernameText(event.target.value)}
                             name="usernameInput"
                             header="Username"
-                            hintText="user1"
                         />
 
                         <CustomTextField
                             onChange={event => setPasswordText(event.target.value)}
                             name="passwordInput"
                             header="Password"
-                            hintText="pass1"
-                            isObscure="true" />
+                            isObscure="true"
+                        />
 
                         {errorText()}
-
+                        
                         <div style={{ height: "30px" }}></div>
                         <CustomButton
                             type="submit"

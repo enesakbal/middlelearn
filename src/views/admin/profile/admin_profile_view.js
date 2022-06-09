@@ -20,10 +20,8 @@ const AdminProfileView = () => {
                 <CustomNavbar data={data} index="1" isAdmin={true} />
                 <div className='admin-profile-body'>
                     <div className='admin-profile-card'>
-                        <img className='admin-profile-card-image' src={pic_url}></img>
-                        {/* <label className='admin-profile-card-title'>
-                            {upperWord(name) + ' ' + upperWord(surname)}
-                        </label> */}
+                    <img className='admin-profile-card-image' src={pic_url}></img>
+                    
                         <div className='admin-profile-form-card '>
                             <label className='admin-profile-form-card-subtitle'>Name</label>
                             <label className='admin-profile-form-card-info'>{upperWord(name) + ' ' + upperWord(surname)}</label>
@@ -47,20 +45,12 @@ const AdminProfileView = () => {
 
                             <label className='admin-profile-form-card-subtitle'>Adress</label>
                             <label className='admin-profile-form-card-info'>{adress}</label>
-
-
                         </div>
                     </div>
 
                 </div>
-            
-
-
         </>
     )
-
-
-
 }
 
 export default AdminProfileView;

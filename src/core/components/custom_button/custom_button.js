@@ -6,7 +6,15 @@ class CustomButton extends Component {
         const { type, buttonText, id, key, hasIcon, onClick } = this.props;
         return (
             <div className="button-container" >
-                <button className='custom-button' key={key} id={id} onClick={onClick} type={type}> {hasIcon === true ? null : buttonText} </button>
+                <button
+                    className='custom-button'
+                    key={key}
+                    id={id}
+                    onClick={onClick}
+                    type={type}>
+                    
+                    {hasIcon === true ? null : buttonText}
+                </button>
             </div>
         )
     }
